@@ -1,7 +1,8 @@
-# Etapa 1: Compilación usando Gradle Wrapper local
+# Etapa 1: Compilación con Gradle Wrapper y permisos correctos
 FROM eclipse-temurin:21-jdk AS builder
 WORKDIR /app
 COPY . .
+RUN chmod +x gradlew
 RUN ./gradlew bootJar --no-daemon
 
 # Etapa 2: Ejecución con OpenJDK 21
